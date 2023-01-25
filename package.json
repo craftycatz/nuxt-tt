@@ -1,0 +1,36 @@
+{
+  "private": true,
+  "scripts": {
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare"
+  },
+  "devDependencies": {
+    "@nuxt/postcss8": "^1.1.3",
+    "@okta/jwt-verifier": "^3.0.0",
+    "@types/okta__jwt-verifier": "^2.1.0",
+    "@vueuse/core": "^9.8.2",
+    "@vueuse/nuxt": "^9.8.2",
+    "autoprefixer": "^10.4.13",
+    "nuxt": "3.0.0",
+    "postcss": "^8.4.20",
+    "prisma": "^4.7.1",
+    "tailwindcss": "^3.2.4"
+  },
+  "dependencies": {
+    "@okta/okta-auth-js": "^7.2.0",
+    "@okta/okta-vue": "^5.5.0",
+    "@prisma/client": "^4.7.1",
+    "@trpc/client": "^10.6.0",
+    "@trpc/server": "^10.6.0",
+    "@vueup/vue-quill": "^1.0.0",
+    "@vueuse/components": "^9.9.0",
+    "class-variance-authority": "^0.4.0",
+    "nuxt-openid-connect": "^0.4.3",
+    "superjson": "^1.12.0",
+    "trpc-nuxt": "^0.4.4",
+    "zod": "^3.20.2"
+  }
+}

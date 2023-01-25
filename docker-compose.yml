@@ -1,0 +1,44 @@
+version: '3.7'
+
+volumes:
+  db_data:
+
+services:
+  db:
+    container_name: traineetool_db
+    platform: linux/arm64/v8
+    image: mariadb:10.5
+    volumes:
+      - db_data:/var/lib/mysql
+    restart: always
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: example
+      MYSQL_DATABASE: example
+      MYSQL_USER: example
+      MYSQL_PASSWORD: example
+
+  # We do not need to build the app, yet only the db container is required to run!!!
+  app:
+    build: .
+    platform: linux/arm64/v8
+    container_name: traineetool
+    volumes: 
+      - ./tsconfig.json:/app/tsconfig.json
+      - ./tailwind.config.js:/app/tailwind.config.js
+      - ./nuxt.config.ts:/app/nuxt.config.ts
+      - ./server:/app/server
+      - ./plugins:/app/plugins
+      - ./pages:/app/pages
+      - ./layouts:/app/layouts
+      - ./components:/app/components
+      - ./assets:/app/assets
+      - ./.nuxt:/app/.nuxt
+      - ./prisma:/app/prisma
+    environment:
+      - DATABASE_URL=mysql://example:example@db:3306/example
+
+
+    ports:
+      - "8080:3000"
